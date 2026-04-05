@@ -59,6 +59,16 @@ This project helps users master their finances through a professional-grade inte
 - **Micro-animations**: Staggered list entries, smooth page transitions, and hover-lift effects.
 - **Responsive Layout**: Mobile-first architecture with a dedicated bottom navigation bar and raised Home FAB.
 
+## 📱 Responsive Support
+
+The dashboard is engineered with a **fluid-grid system** ensuring a seamless experience across all modern resolutions:
+
+| Device | Breakpoint | Adaptive Features |
+|---|---|---|
+| **Mobile** | *< 768px* | Bottom navigation bar, raised Home FAB, stackable charts, and card-based transaction ledger. |
+| **Tablet** | *768px - 1024px* | Two-column grid layouts, expanded side-panel details, and optimized chart density. |
+| **Desktop** | *> 1024px* | Full multi-column dashboard, fixed sidebar navigation, and advanced table views. |
+
 ## 📂 Project Structure
 
 ```text
