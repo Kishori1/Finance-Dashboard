@@ -1,167 +1,111 @@
 # Finance Dashboard
 
-A modern personal finance dashboard built with **React 19** and designed for clear insights, smooth interactions, and responsive performance across desktop and mobile devices.
+A modern personal finance dashboard built with **React 19** and designed for clear insights, smooth interactions, and premium visuals across desktop and mobile devices.
 
-It includes transaction management, budget tracking, analytics dashboards, role-based access control, dark mode, and exportable financial data.
+It features advanced transaction management, a comprehensive 6-section budget analytics engine, smart financial insights, role-based access control, and a persistent dark mode.
 
-## Overview
+## 🚀 Overview
 
-This project helps users monitor their financial activity through a polished dashboard interface with interactive charts and actionable summaries. It is structured for scalability and maintainability, with reusable components, centralized state management, and a responsive design system.
+This project helps users master their finances through a professional-grade interface. It combines real-time data visualization with actionable summaries, structured for high performance and maintainability.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| Frontend | React 19 + Vite 8 | Fast development workflow and modern UI architecture |
-| Styling | Tailwind CSS 4 | Utility-first styling with custom design tokens |
-| State Management | Zustand 5 with `persist` | Lightweight global state with localStorage persistence |
-| Charts | Recharts 3 | Responsive data visualization components |
-| Animations | Framer Motion 12 | Smooth UI transitions and interaction feedback |
-| Icons | Lucide React | Consistent iconography |
-| Utilities | date-fns, clsx, tailwind-merge | Date handling and conditional styling |
+| **Frontend** | React 19 + Vite 8 | Modern UI architecture with ultra-fast HMR |
+| **Styling** | Tailwind CSS 4 | Utility-first styling with a custom gradient design system |
+| **State** | Zustand 5 + Persist | Lightweight global state with localStorage synchronization |
+| **Charts** | Recharts 3 | Responsive, interactive SVG data visualizations |
+| **Motion** | Framer Motion 12 | Smooth UI transitions and micro-interactions |
+| **Icons** | Lucide React | Consistent, high-quality iconography |
 
-## Features
+## ✨ Features
 
-### Dashboard
-- Summary cards for total balance, monthly income, monthly expenses, and savings rate
-- Balance trend visualization
-- Spending breakdown donut chart
-- Income vs. expenses comparison chart
-- Transaction ledger with search, sorting, filtering, and grouping
+### 📊 Dashboard
+- **Financial Snapshot**: Real-time summary cards for Balance, Income, Expenses, and Savings.
+- **Trend Analysis**: 6-month balance area charts with gradient fills.
+- **Spending Distribution**: Interactive donut charts for categorical breakdown.
+- **Master Ledger**: Power-user table with fuzzy search, multi-sort, and category grouping.
 
-### Transaction Management
-- Add, edit, and delete transactions
-- Search by description or category
-- Filter by transaction type
-- Sort by date, description, or amount
-- Group transactions by category or type
-- Paginated transaction views
-- Export filtered data as CSV or JSON
-- Transaction detail side panel
-- Mobile-friendly card layout
+### 🔍 Transaction Management
+- **Full CRUD**: Add, edit, and delete transactions with instant state updates.
+- **Smart Filtering**: Filter by type (Income/Expense) or search by description/category.
+- **Detail Side-panel**: Slide-over view for deep-dives into single transactions.
+- **Data Portability**: Export filtered transaction views to **CSV** or **JSON**.
 
-### Insights
-- Financial health score visualization
-- Income vs. expenses trend analysis
-- Spending velocity tracking
-- Smart recommendation cards
-- Savings milestone timeline
-- Category deep-dive analysis
-- Daily spending heatmap
+### 💡 Smart Insights
+- **Financial Health Score**: Dynamic gauge (0-100) calculated from spending habits.
+- **Cash Flow Trend**: Optimized "Income vs Expenses" area charts (mobile-tuned layout).
+- **Spending Velocity**: Real-time "burn rate" tracker compared to monthly budget.
+- **Milestone Timeline**: Visual tracking of savings goals and upcoming targets.
 
-### Budget Tracking
-- Budget overview with progress indicator
-- Category-level spending progress
-- Real-time calculations based on transaction data
+### 🎯 Advanced Budget Tracking
+- **Budget Hero KPI**: 4-card overview (Total, Spent, Available, Alerts) with status gauges.
+- **Budget vs Actual Comparison**: Bar chart analysis per category.
+- **Health Triage**: Automatic classification into *Over Budget*, *Near Limit*, or *On Track*.
+- **Category Deep-dive**: Detailed cards showing **Daily Burn Rate (₹/day)** and % usage.
 
-### Access Control
-- Admin and Viewer roles
-- Role-based restrictions for editing, deleting, and exporting data
-- Persistent role switching across sessions
-- Graceful access-denied state for restricted actions
+### 🔐 Access Control
+- **RBAC Engine**: Native support for **Admin** and **Viewer** roles.
+- **Permission Guards**: Restricted actions (Add/Edit/Delete/Export) for Viewers.
+- **Graceful States**: Custom "Access Denied" screens with interactive role switching.
 
-### User Experience
-- Dark mode support
-- Glassmorphism-inspired UI
-- Responsive layout for mobile, tablet, and desktop
-- Motion-based interactions
-- Notification center
-- Custom scrollbar styling
+## 🎨 Design System
 
-## Project Structure
+- **Premium Gradients**: A curated palette (Blue, Violet, Emerald, Amber) used for card backgrounds to enhance visual hierarchy.
+- **Glassmorphism**: Frosted-glass UI components with backdrop-blur effects.
+- **Micro-animations**: Staggered list entries, smooth page transitions, and hover-lift effects.
+- **Responsive Layout**: Mobile-first architecture with a dedicated bottom navigation bar and raised Home FAB.
+
+## 📂 Project Structure
 
 ```text
 src/
-├── components/
-│   ├── Header.jsx
-│   ├── StatCard.jsx
-│   ├── BalanceChart.jsx
-│   ├── SpendingDonut.jsx
-│   ├── ComparisonChart.jsx
-│   ├── TransactionTable.jsx
-│   ├── TransactionModal.jsx
-│   ├── TransactionDetail.jsx
-│   ├── NotificationCenter.jsx
-│   ├── RoleSwitcher.jsx
-│   └── PermissionDenied.jsx
-├── pages/
-│   ├── Insights.jsx
-│   └── Budgets.jsx
-├── store/
-│   └── useFinanceStore.js
-├── utils/
-│   └── ExportUtils.js
-├── App.jsx
-├── main.jsx
-└── index.css
+├── components/          # Reusable UI components (Charts, Tables, Modals)
+├── pages/               # Main view containers (Dashboard, Insights, Budgets)
+├── store/               # Zustand state definitions and persistence logic
+├── utils/               # Export utilities and formatting helpers
+├── App.jsx              # Main routing and RBAC layout
+├── main.jsx             # React entry point with Error Boundary
+└── index.css            # Global styles and design tokens
 ```
 
-## Getting Started
+## 🏁 Getting Started
 
 ### Prerequisites
-- Node.js 18 or later
-- npm
+- **Node.js 18+**
+- **npm / yarn**
 
 ### Installation
 
 ```bash
+# 1. Clone & Navigate
 git clone https://github.com/Kishori1/Finance-Dashboard.git
 cd Finance-Dashboard/Finance
+
+# 2. Install & Start
 npm install
 npm run dev
 ```
 
-Open the local development server in your browser:
-
-```text
-http://localhost:5173
-```
-
-### Production Build
-
-```bash
-npm run build
-npm run preview
-```
-
-## Role Permissions
+## 🛡️ Role Permissions
 
 | Feature | Admin | Viewer |
 |---|---:|---:|
-| View Dashboard | Yes | Yes |
-| View Insights | Yes | Yes |
-| View Budgets | Yes | Yes |
-| Add Transaction | Yes | No |
-| Edit Transaction | Yes | No |
-| Delete Transaction | Yes | No |
-| Export Data | Yes | No |
-| Switch Roles | Yes | Yes |
+| View Dashboard | ✅ | ✅ |
+| View Insights | ✅ | ✅ |
+| View Budgets | ✅ | ✅ |
+| Add/Edit/Delete | ✅ | ❌ |
+| Export Data | ✅ | ❌ |
+| Switch Roles | ✅ | ✅ |
 
-## Responsive Behavior
+## 🧪 Edge Case Handling
 
-| Breakpoint | Layout |
-|---|---|
-| Mobile (<768px) | Single-column layout with mobile navigation and card-based transactions |
-| Tablet (768–1024px) | Two-column layout with expanded navigation |
-| Desktop (1024px+) | Multi-column layout with full table views and wider analytics panels |
+- **Error Boundaries**: Prevents app crashes from breaking the UI.
+- **Empty States**: Custom illustrations and text for zero-result views.
+- **Pagination Sync**: Automatic reset to page 1 during search/filter changes.
+- **Safe Persistence**: Validates localStorage data integrity on load.
 
-## State Management
-
-The application uses a centralized Zustand store with persistence enabled through localStorage. This keeps key UI and finance data available across refreshes, including:
-- transactions
-- selected role
-- dark mode preference
-
-## Edge Cases Covered
-
-- Empty transaction states
-- Required field validation
-- Safe handling of persisted localStorage data
-- Auto-closing detail views after deletion
-- Pagination reset after filter changes
-- Category-aware defaults for transaction types
-- Protection against duplicate form submission
-
-## License
+## 📜 License
 
 MIT © 2026
