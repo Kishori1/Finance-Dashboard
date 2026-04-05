@@ -268,24 +268,37 @@ function App() {
           </>
         )}
         {/* Mobile Fixed Navigation Bar */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 h-[64px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-8 z-[50]">
-          <button 
-            onClick={() => setActiveTab('dashboard')}
-            className={`flex flex-col items-center gap-0.5 ${activeTab === 'dashboard' ? 'text-blue-500' : 'text-slate-400'}`}
-          >
-            <LayoutDashboard className="w-5 h-5" />
-            <span className="text-[9px] font-black uppercase tracking-tighter">Home</span>
-          </button>
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 h-[64px] bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-8 z-[50]">
+          {/* Left — Budget */}
           <button 
             onClick={() => setActiveTab('budgets')}
-            className={`flex flex-col items-center gap-0.5 ${activeTab === 'budgets' ? 'text-emerald-500 anim-pulse-green' : 'text-slate-400'}`}
+            className={`flex flex-col items-center gap-0.5 ${activeTab === 'budgets' ? 'text-emerald-500' : 'text-slate-400'}`}
           >
             <Target className="w-5 h-5" />
             <span className="text-[9px] font-black uppercase tracking-tighter">Budget</span>
           </button>
+
+          {/* Center — Home (Raised FAB) */}
+          <button 
+            onClick={() => setActiveTab('dashboard')}
+            className="relative -mt-10 flex flex-col items-center"
+          >
+            <div className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ${
+              activeTab === 'dashboard' 
+                ? 'bg-blue-600 text-white shadow-blue-500/30 scale-105' 
+                : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 shadow-slate-200/50 dark:shadow-slate-900/50 border border-slate-200 dark:border-slate-700'
+            }`}>
+              <LayoutDashboard className="w-6 h-6" />
+            </div>
+            <span className={`text-[9px] font-black uppercase tracking-tighter mt-1 ${
+              activeTab === 'dashboard' ? 'text-blue-500' : 'text-slate-400'
+            }`}>Home</span>
+          </button>
+
+          {/* Right — Insights */}
           <button 
             onClick={() => setActiveTab('insights')}
-            className={`flex flex-col items-center gap-0.5 ${activeTab === 'insights' ? 'text-amber-500 anim-pulse-amber' : 'text-slate-400'}`}
+            className={`flex flex-col items-center gap-0.5 ${activeTab === 'insights' ? 'text-amber-500' : 'text-slate-400'}`}
           >
             <Lightbulb className="w-5 h-5" />
             <span className="text-[9px] font-black uppercase tracking-tighter">Insights</span>
