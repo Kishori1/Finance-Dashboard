@@ -67,7 +67,7 @@ The dashboard is engineered with a **fluid-grid system** ensuring a seamless exp
 |---|---|---|
 | **Mobile** | *< 768px* | Bottom navigation bar, raised Home FAB, stackable charts, and card-based transaction ledger. |
 | **Tablet** | *768px - 1024px* | Two-column grid layouts, expanded side-panel details, and optimized chart density. |
-| **Desktop** | *> 1024px* | Full multi-column dashboard, fixed sidebar navigation, and advanced table views. |
+| **Desktop** | *> 1024px* | Full multi-column dashboard, premium centered tab-bar, and advanced table views. |
 
 ## 📂 Project Structure
 
