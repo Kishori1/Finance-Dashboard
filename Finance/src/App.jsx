@@ -29,32 +29,34 @@ function App() {
     }
   }, [isDark]);
 
+  // Update document title based on active tab
   useEffect(() => {
-    // Check for system preference if no user preference is set (optional, but good for "proper" implementation)
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => {
-      // Only auto-switch if the user hasn't explicitly set it or if we want to follow system
-      // For now, let's just listen for the first load if needed
+    const titles = {
+      dashboard: 'Dashboard — Finance',
+      budgets: 'Budget Analysis — Finance',
+      insights: 'Financial Insights — Finance',
     };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+    document.title = titles[activeTab] || 'Finance Dashboard';
+  }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-bg-main text-text-primary main-container transition-colors duration-500 font-sans selection:bg-blue-500/20">
+    <div id="app" role="main" className="min-h-screen bg-bg-main text-text-primary main-container transition-colors duration-500 font-sans selection:bg-blue-500/20">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <Header />
 
         {/* Tab Navigation (Desktop Only) */}
-        <div className="hidden md:flex p-1 bg-white/30 dark:bg-slate-800/30 backdrop-blur-2xl rounded-2xl w-fit mb-8 shadow-inner border border-white/40 dark:border-slate-700/50 mx-auto">
+        <nav aria-label="Main navigation" className="hidden md:flex p-1 bg-white/30 dark:bg-slate-800/30 backdrop-blur-2xl rounded-2xl w-fit mb-8 shadow-inner border border-white/40 dark:border-slate-700/50 mx-auto">
            <button 
-            onClick={() => setActiveTab('dashboard')}
+            id="tab-dashboard"
+            aria-label="Dashboard tab"
             className={`flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'dashboard' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/25 scale-105' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/50 dark:hover:bg-slate-700/50'}`}
           >
             <LayoutDashboard className={`w-4 h-4 ${activeTab === 'dashboard' ? 'animate-pulse' : ''}`} />
             <span className="hidden sm:inline">Dashboard</span>
           </button>
           <button 
+            id="tab-budgets"
+            aria-label="Budgets tab"
             onClick={() => setActiveTab('budgets')}
             className={`flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'budgets' ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/25 scale-105' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/50 dark:hover:bg-slate-700/50'}`}
           >
@@ -62,13 +64,15 @@ function App() {
             <span className="hidden sm:inline">Budgets</span>
           </button>
           <button 
+            id="tab-insights"
+            aria-label="Insights tab"
             onClick={() => setActiveTab('insights')}
             className={`flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 ${activeTab === 'insights' ? 'bg-amber-600 text-white shadow-lg shadow-amber-500/25 scale-105' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/50 dark:hover:bg-slate-700/50'}`}
           >
             <Lightbulb className={`w-4 h-4 ${activeTab === 'insights' ? 'animate-pulse' : ''}`} />
             <span className="hidden sm:inline">Insights</span>
           </button>
-        </div>
+        </nav>
 
         <AnimatePresence mode="wait">
           {activeTab === 'dashboard' && (
@@ -268,9 +272,11 @@ function App() {
           </>
         )}
         {/* Mobile Fixed Navigation Bar */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 h-[64px] bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-8 z-[50]">
+        <nav aria-label="Mobile navigation" className="md:hidden fixed bottom-0 left-0 right-0 h-[64px] bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-8 z-[50]">
           {/* Left — Budget */}
           <button 
+            id="mobile-tab-budgets"
+            aria-label="Budget tab"
             onClick={() => setActiveTab('budgets')}
             className={`flex flex-col items-center gap-0.5 ${activeTab === 'budgets' ? 'text-emerald-500' : 'text-slate-400'}`}
           >
@@ -280,6 +286,8 @@ function App() {
 
           {/* Center — Home (Raised FAB) */}
           <button 
+            id="mobile-tab-home"
+            aria-label="Home tab"
             onClick={() => setActiveTab('dashboard')}
             className="relative -mt-10 flex flex-col items-center"
           >
@@ -297,6 +305,8 @@ function App() {
 
           {/* Right — Insights */}
           <button 
+            id="mobile-tab-insights"
+            aria-label="Insights tab"
             onClick={() => setActiveTab('insights')}
             className={`flex flex-col items-center gap-0.5 ${activeTab === 'insights' ? 'text-amber-500' : 'text-slate-400'}`}
           >

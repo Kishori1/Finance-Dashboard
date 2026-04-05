@@ -24,12 +24,15 @@ export const TransactionTable = () => {
   };
 
   const filteredTransactions = useMemo(() => {
-    return transactions.filter(t => {
+    const result = transactions.filter(t => {
       const matchesSearch = t.description.toLowerCase().includes(search.toLowerCase()) || 
                            t.category.toLowerCase().includes(search.toLowerCase());
       const matchesType = typeFilter === 'All' || t.type === typeFilter;
       return matchesSearch && matchesType;
     });
+    // Reset to page 1 when filters change
+    setCurrentPage(1);
+    return result;
   }, [transactions, search, typeFilter]);
 
   const sortedTransactions = useMemo(() => {
@@ -333,6 +336,17 @@ export const TransactionTable = () => {
             </div>
           </AnimatePresence>
         </div>
+
+        {/* Empty State */}
+        {filteredTransactions.length === 0 && (
+          <div className="p-12 text-center">
+            <div className="mx-auto w-14 h-14 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4">
+              <Search className="w-6 h-6 text-slate-400" />
+            </div>
+            <h4 className="text-lg font-bold text-text-primary mb-1">No transactions found</h4>
+            <p className="text-sm text-text-secondary">Try adjusting your search or filter criteria</p>
+          </div>
+        )}
 
         {/* Pagination */}
         <div className="p-6 bg-bg-main/30 border-t border-border-color flex justify-between items-center">
