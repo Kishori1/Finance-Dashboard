@@ -4,6 +4,8 @@ A modern personal finance dashboard built with **React 19** and designed for cle
 
 It features advanced transaction management, a comprehensive 6-section budget analytics engine, smart financial insights, role-based access control, and a persistent dark mode.
 
+**[🌐 Live Demo](https://finance-dashboard-three-hazel.vercel.app/)**
+
 ## 🚀 Overview
 
 This project helps users master their finances through a professional-grade interface. It combines real-time data visualization with actionable summaries, structured for high performance and maintainability.
